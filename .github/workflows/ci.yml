@@ -9,7 +9,6 @@ jobs:
       db:
         image: mysql:5.7.29
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: test
           MYSQL_USER: root
           MYSQL_PASSWORD: wasd
