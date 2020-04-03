@@ -7,7 +7,7 @@ jobs:
 
     services:
       db:
-        image: mysql:5.7.29
+        image: mysql
         env:
           MYSQL_DATABASE: test
           MYSQL_USER: root
