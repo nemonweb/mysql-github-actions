@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      db:
+      mysql:
         image: mysql:5.7.29
         env:
           MYSQL_DATABASE: test
@@ -14,6 +14,7 @@ jobs:
           MYSQL_PASSWORD: password
         ports:
           - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - uses: actions/checkout@v2
@@ -21,4 +22,4 @@ jobs:
       - name: Install mysql client
         run: |
           sudo apt-get -yqq install mysql-client
-          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "SHOW DATABASES"
+          mysql --host mysql --port 3306 -uroot -ppassword -e "SHOW DATABASES"
