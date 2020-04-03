@@ -21,4 +21,4 @@ jobs:
       - name: Install mysql client
         run: |
           sudo apt-get -yqq install mysql-client
-          mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -e "SHOW DATABASES"
+          mysql --host 127.0.0.1 --port 3306 -uroot -ppassword -e "SHOW DATABASES"
